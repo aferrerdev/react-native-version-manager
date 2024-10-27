@@ -1,0 +1,19 @@
+{
+  "name": "react-native-version-manager",
+  "version": "0.0.0",
+  "description": "RN library to manage app version",
+  "main": "src/index",
+  "codegenConfig": {
+    "name": "RNVersionManagerSpec",
+    "type": "modules",
+    "jsSrcsDir": "src"
+  },
+  "author": " <> ()",
+  "license": "UNLICENSED",
+  "homepage": "#readme",
+  "create-react-native-library": {
+    "type": "module-mixed",
+    "languages": "kotlin-objc",
+    "version": "0.42.2"
+  }
+}
