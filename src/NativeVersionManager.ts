@@ -3,6 +3,7 @@ import {TurboModuleRegistry} from 'react-native';
 
 export interface Spec extends TurboModule {
   getAppVersion(): Promise<string>;
+  isAppVersionDeprecated(deprecatedVersions: string[]): Promise<boolean>;
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('VersionManager');

@@ -27,3 +27,8 @@ const VersionManager = VersionManagerModule
 export const getAppVersion = () => {
   return VersionManager.getAppVersion();
 };
+
+export const isAppVersionDeprecated = async (deprecatedVersions: string[]) => {
+  const version = await VersionManager.getAppVersion();
+  return deprecatedVersions.includes(version);
+};
