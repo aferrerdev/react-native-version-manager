@@ -15,6 +15,17 @@ RCT_EXPORT_METHOD(multiply:(double)a
     resolve(result);
 }
 
+RCT_EXPORT_METHOD(getAppVersion:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject)
+{
+  NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+  if (version != nil) {
+    resolve(version);
+  } else {
+    reject(@"ERROR", @"Failed to get app version", nil);
+  }
+}
+
 // Don't compile this code when we build for the old architecture.
 #ifdef RCT_NEW_ARCH_ENABLED
 - (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:

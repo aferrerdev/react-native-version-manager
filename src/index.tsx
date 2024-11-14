@@ -27,3 +27,7 @@ const VersionManager = VersionManagerModule
 export function multiply(a: number, b: number): Promise<number> {
   return VersionManager.multiply(a, b);
 }
+
+export const getAppVersion = () => {
+  return VersionManager.getAppVersion();
+};
