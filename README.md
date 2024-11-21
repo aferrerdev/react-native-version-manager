@@ -5,16 +5,22 @@ A lightweight React Native module for managing app versions. This module provide
 1. **Retrieve the current app version.**
 2. **Check if the current app version is deprecated.**
 
-## Installation
+## Installation (Not in npm yet).
 
 ```bash
-npm install react-native-version-manager
+mkdir modules
+cd modules/
+git clone https://github.com/aferrerdev/react-native-version-manager
 ```
 
-or
+Then use dependency in package.json
 
 ```bash
-yarn add react-native-version-manager
+"dependencies": {
+    "react": "18.3.1",
+    "react-native": "0.76.1",
+    "react-native-version-manager": "file:./modules/react-native-version-manager"
+  },
 ```
 
 ### Linking
