@@ -1,7 +1,7 @@
 #import "VersionManager.h"
 
 @implementation VersionManager
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(VersionManager)
 
 
 RCT_EXPORT_METHOD(getAppVersion:(RCTPromiseResolveBlock)resolve
@@ -10,6 +10,20 @@ RCT_EXPORT_METHOD(getAppVersion:(RCTPromiseResolveBlock)resolve
   NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
   if (version != nil) {
     resolve(version);
+  } else {
+    reject(@"ERROR", @"Failed to get app version", nil);
+  }
+}
+
+RCT_EXPORT_METHOD(isAppVersionDeprecated:(NSArray<NSString *> *)deprecatedVersions
+                                resolve:(RCTPromiseResolveBlock)resolve
+                                reject:(RCTPromiseRejectBlock)reject)
+{
+  NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+  if (version) {
+    BOOL isDeprecated = [deprecatedVersions containsObject:version];
+    // Resolve with a boolean indicating if the version is deprecated
+    resolve(@(isDeprecated));  
   } else {
     reject(@"ERROR", @"Failed to get app version", nil);
   }
