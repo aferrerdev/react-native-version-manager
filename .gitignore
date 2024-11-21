@@ -1,0 +1,6 @@
+android/build/
+.idea
+.gradle
+gradlew*
+local.properties
+gradle-wrapper.*
